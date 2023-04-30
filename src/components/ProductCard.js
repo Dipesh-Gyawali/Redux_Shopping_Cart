@@ -1,4 +1,4 @@
-import { add, remove } from "../store/cartSlice";
+import { add } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
 
 
