@@ -1,15 +1,29 @@
 import { add } from "../store/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
 import "./ProductCard.css";
+import { useEffect } from "react";
 
 export const ProductCard = ({product}) => {
-
   const dispatch = useDispatch();
+  const products = useSelector(state => state.cartState.cartList);
+  const [isInCart, setIsInCart] = useState(false);
+
+  const {id, name, price, image} = product;
+
   
-  const {name, price, image} = product;
+  useEffect(() => {
+    const productInCart = products.find(item => item.id ===id);
+
+    if(productInCart){
+      setIsInCart(true);
+    }else {
+      setIsInCart(false);
+    }
+  },[products,id]);
+
 
   return (
     <div className="productCard">
