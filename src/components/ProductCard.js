@@ -28,7 +28,7 @@ export const ProductCard = ({product}) => {
       <p className="name">{name}</p>
       <div className="action">
         <p>${price}</p>
-        { isInCart ? (<button onClick={() => dispatch(remove(product))}>Remove</button>) : (<button onClick={() => dispatch(add(product))}>Add To Cart</button>)}
+        { isInCart ? (<button className="remove" onClick={() => dispatch(remove(product))}>Remove</button>) : (<button onClick={() => dispatch(add(product))}>Add To Cart</button>)}
       </div>
     </div>
   )
